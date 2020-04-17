@@ -22,5 +22,4 @@ export default {
 
 <style scoped>
   .webbs-home-contain{background: #8B8989;}
-
 </style>
