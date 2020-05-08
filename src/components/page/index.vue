@@ -1,6 +1,8 @@
 <template>
   <el-row :gutter="15" class="index">
-    <el-col :span="17">11</el-col>
+    <el-col :span="17">
+      <div class="webbs-index-main">内容</div>
+    </el-col>
     <el-col :span="7" class="webbs-list">
       <dl class="webbs-home-list-active webbs-list-dl" v-if="activeArr.length != 0">
         <dt>本周活跃</dt>
@@ -53,5 +55,6 @@ export default {
 </script>
 
 <style scoped>
+  .webbs-index-main{margin: 15px 0; height: 500px; background-color: #FFFAFA;}
   .webbs-home-list-more{float: right; font-size: 12px;}
 </style>

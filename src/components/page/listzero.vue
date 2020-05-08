@@ -46,8 +46,8 @@ export default {
 <style scoped>
   .webbs-zero-sort{padding: 10px;}
   .webbs-zero-list{padding: 20px; background-color: #FFFAFA;}
-  .webbs-zero-list dd{padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dashed #CCC;}
-  .webbs-zero-list dd a{display: flex; width: 100%; color: #4F4F4F;}
+  .webbs-zero-list dd{padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
+  .webbs-zero-list dd a{display: flex; width: 100%;}
   .webbs-zero-list dd a:hover{color: #8B8989;}
   .webbs-zero-list-title{flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 18px;}
   .webbs-zero-list-attr{width: 250px; padding-top: 2px; text-align: right;}

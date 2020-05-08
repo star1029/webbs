@@ -135,7 +135,7 @@ export default {
 
 <style scoped>
   .webbs-detail-main{margin-top: 15px; background-color: #FFFAFA;}
-  .webbs-detail-article{padding: 15px; border-bottom: 1px solid #CCC;}
+  .webbs-detail-article{padding: 15px; border-bottom: 1px solid #CDC9C9;}
   .webbs-detail-article-content{margin-bottom: 10px; padding: 5px; font-size: 14px;}
   .webbs-detail-article-like{position: relative; margin-right: 10px; border: none; background: transparent; outline: none;}
   .webbs-detail-article-like span{position: absolute; top: -10px; right: 0; font-size: 12px; color: #FF6347; opacity: 0; transition: 300ms all;}
@@ -144,16 +144,16 @@ export default {
   .webbs-detail-article-replys{font-size: 14px;}
   .webbs-detail-article-comment{float: right;}
   .webbs-detail-reply{padding: 15px;}
-  .webbs-detail-reply-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #CCC;}
+  .webbs-detail-reply-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
   .webbs-detail-reply-btnGroup{position: relative; padding-top: 5px;}
   .webbs-detail-reply-btnGroup button+button{position: absolute; right: 0;}
-  .webbs-detail-reply-list>div{margin: 10px 0; border: 1px solid #DDD; padding: 30px; text-align: center;}
+  .webbs-detail-reply-list>div{margin: 10px 0; border: 1px solid #CDC9C9; padding: 30px; text-align: center;}
 
   .webbs-detail-author{padding: 15px; text-align: center;}
-  .webbs-detail-avatar{display: inline-block; width: 80px; height: 80px; overflow: hidden; border: 1px solid #EEE; border-radius: 50%;}
+  .webbs-detail-avatar{display: inline-block; width: 80px; height: 80px; overflow: hidden; border: 1px solid #CDC9C9; border-radius: 50%;}
   .webbs-detail-avatar img{width: 100%; height: 100%;}
   .webbs-detail-nickname{height: 34px; line-height: 34px;}
   .webbs-detail-fens li{display: inline-block; width: 50%;}
-  .webbs-detail-hot{margin-top: 15px; padding-top: 15px; border-top: 1px solid #CCC; font-size: 14px; line-height: 24px; text-align: left;}
+  .webbs-detail-hot{margin-top: 15px; padding-top: 15px; border-top: 1px solid #CDC9C9; font-size: 14px; line-height: 24px; text-align: left;}
   .webbs-detail-hot dd{overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 </style>

@@ -22,5 +22,5 @@ export default {
 
 <style scoped>
   .home{height: 100%; overflow: auto;}
-  .webbs-home-contain{background: #8B8989;}
+  .webbs-home-contain{}
 </style>

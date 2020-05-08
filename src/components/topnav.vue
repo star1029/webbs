@@ -33,8 +33,8 @@ export default {
   .webbs-nav-list li{display: inline-block; margin: 0 10px; vertical-align: middle;}
 
   .webbs-nav-other>*{display: inline-block; vertical-align: middle;}
-  .webbs-nav-search{font-size: 26px; cursor: pointer; color: #999;}
+  .webbs-nav-search{font-size: 26px; cursor: pointer; color: #8B8989;}
   .webbs-nav-write{margin: 0 10px;}
-  .webbs-nav-write i{font-size: 26px; color: #999;}
-  .webbs-nav-login{color: #666;}
+  .webbs-nav-write i{font-size: 26px; color: #8B8989;}
+  .webbs-nav-login{}
 </style>
