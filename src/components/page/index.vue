@@ -52,6 +52,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .webbs-home-list-more{float: right; font-size: 12px;}
 </style>

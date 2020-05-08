@@ -133,7 +133,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .webbs-detail-main{margin-top: 15px; background-color: #FFFAFA;}
   .webbs-detail-article{padding: 15px; border-bottom: 1px solid #CCC;}
   .webbs-detail-article-content{margin-bottom: 10px; padding: 5px; font-size: 14px;}

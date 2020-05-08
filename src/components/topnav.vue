@@ -4,11 +4,11 @@
       <el-col class="webbs-nav-top" :xs="{span:24}" :sm="{span:22,offset:1}" :md="{span:18,offset:3}" :lg="{span:16,offset:4}">
         <ul class="webbs-nav-list">
           <li><router-link to="/">首页</router-link></li>
-          <li>生活</li>
-          <li>财经</li>
-          <li>技术</li>
-          <li>娱乐</li>
-          <li>新闻</li>
+          <li cate="life">生活</li>
+          <li cate="econ">财经</li>
+          <li cate="tech">技术</li>
+          <li cate="gossip">娱乐</li>
+          <li cate="news">新闻</li>
         </ul>
         <div class="webbs-nav-other">
           <i class="icon iconfont icon-sousuo2 webbs-nav-search"></i>

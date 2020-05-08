@@ -21,5 +21,6 @@ export default {
 </script>
 
 <style scoped>
+  .home{height: 100%; overflow: auto;}
   .webbs-home-contain{background: #8B8989;}
 </style>
