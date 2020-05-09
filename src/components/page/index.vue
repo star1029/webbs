@@ -1,22 +1,24 @@
 <template>
   <el-row :gutter="15" class="index">
     <el-col :span="17">
-      <div class="webbs-index-main">内容</div>
+      <div class="webbs-index-main">
+        <router-view></router-view>
+      </div>
     </el-col>
-    <el-col :span="7" class="webbs-list">
-      <dl class="webbs-home-list-active webbs-list-dl" v-if="activeArr.length != 0">
+    <el-col :span="7" class="webbs-side">
+      <dl class="webbs-home-side-active webbs-side-dl" v-if="activeArr.length != 0">
         <dt>本周活跃</dt>
       </dl>
-      <dl class="webbs-home-list-goods webbs-list-dl" v-if="goodsArr.length != 0">
+      <dl class="webbs-home-side-goods webbs-side-dl" v-if="goodsArr.length != 0">
         <dt>好文推荐</dt>
       </dl>
-      <dl class="webbs-list-dl" v-if="discussArr.length != 0">
+      <dl class="webbs-side-dl" v-if="discussArr.length != 0">
         <dt>热门讨论</dt>
         <dd v-for="item in discussArr" v-bind:key="item.id">
           <router-link :to="{name: 'detail', params:{id: item.id}}">{{item.title}}</router-link>
         </dd>
       </dl>
-      <dl class="webbs-list-dl" v-if="replyArr.length != 0">
+      <dl class="webbs-side-dl" v-if="replyArr.length != 0">
         <dt>打破零回复 <router-link to="/listzero" class="webbs-home-list-more">查看更多</router-link></dt>
         <dd v-for="item in replyArr" v-bind:key="item.id">
           <router-link :to="{name: 'detail', params:{id: item.id}}">{{item.title}}</router-link>

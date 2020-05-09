@@ -3,12 +3,12 @@
     <div class="webbs-zero-sort">按时间
       <button class="webbs-button"><i class="el-icon-bottom"></i></button><button class="webbs-button"><i class="el-icon-top"></i></button>
     </div>
-    <dl class="webbs-zero-list">
+    <dl class="webbs-list">
       <dd v-for="item in list" v-bind:key="item.id">
-        <router-link :to="{name: 'detail', params:{id: item.id}}">
-          <p class="webbs-zero-list-title">{{item.title}}</p>
-          <p class="webbs-zero-list-attr">
-            <el-tag class="webbs-zero-list-cate" size="mini" v-for="tag in item.cate" v-bind:key="tag.key">{{cateObj[tag]}}</el-tag>
+        <router-link :to="{name: 'detail', params: {id: item.id}}">
+          <p class="webbs-list-title">{{item.title}}</p>
+          <p class="webbs-list-attr">
+            <el-tag class="webbs-list-cate" size="mini" v-for="tag in item.cate" v-bind:key="tag.key">{{cateObj[tag]}}</el-tag>
           </p>
         </router-link>
       </dd>
@@ -45,11 +45,4 @@ export default {
 
 <style scoped>
   .webbs-zero-sort{padding: 10px;}
-  .webbs-zero-list{padding: 20px; background-color: #FFFAFA;}
-  .webbs-zero-list dd{padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
-  .webbs-zero-list dd a{display: flex; width: 100%;}
-  .webbs-zero-list dd a:hover{color: #8B8989;}
-  .webbs-zero-list-title{flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 18px;}
-  .webbs-zero-list-attr{width: 250px; padding-top: 2px; text-align: right;}
-  .webbs-zero-list-cate+.webbs-zero-list-cate{margin-left: 5px;}
 </style>

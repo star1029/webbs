@@ -8,12 +8,15 @@
           <button class="webbs-button webbs-detail-article-like" v-on:click="like">点赞 
             <i ref="likeIcon" class="icon iconfont icon-like"></i><span ref="likeText">+1</span>
           </button>
+          <button class="webbs-button webbs-detail-article-like" v-on:click="unlike">踩 
+            <i ref="unlikeIcon" class="icon iconfont icon-cai2"></i>
+          </button>
           <span class="webbs-detail-article-replys">评论数 <span>{{replys}}</span></span>
           <button class="webbs-button webbs-detail-article-comment" @click="write"> <i class="icon iconfont icon-write"></i> 写评论</button>
         </div>
         <div class="webbs-detail-reply">
           <div v-if="show" class="webbs-detail-reply-write">
-            <el-input type="textarea" ref="textarea" :rows="2" placeholder="请输入..." v-model.trim="textarea"></el-input>
+            <el-input type="textarea" ref="textarea" :rows="4" placeholder="请输入..." v-model.trim="textarea"></el-input>
             <div class="webbs-detail-reply-btnGroup">
               <button class="webbs-button" @click="publish">发表</button>
               <button class="webbs-button" @click="cancel">取消</button>
@@ -29,7 +32,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :span="7" class="webbs-list">
+    <el-col :span="7" class="webbs-side">
       <div class="webbs-detail-author">
         <div class="webbs-detail-avatar"><img :src="`${publicPath}avatar.jpeg`" alt="头像"></div>
         <p class="webbs-detail-nickname">{{nickname}}</p>
@@ -44,7 +47,7 @@
           </dd>
         </dl>
       </div>
-      <dl class="webbs-list-dl" v-if="about.length != 0">
+      <dl class="webbs-side-dl" v-if="about.length != 0">
         <dt>相关文章</dt>
         <dd v-for="item in about" v-bind:key="item.id">
           <router-link :to="{name: 'detail', params:{id: item.id}}">{{item.title}}</router-link>
@@ -110,6 +113,9 @@ export default {
         });
       }
     },
+    unlike(){
+      this.$refs.unlikeIcon.style.color = "#00BFFF";
+    },
     write(){
       this.textarea = '';
       this.show = true;
@@ -145,7 +151,7 @@ export default {
   .webbs-detail-article-comment{float: right;}
   .webbs-detail-reply{padding: 15px;}
   .webbs-detail-reply-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
-  .webbs-detail-reply-btnGroup{position: relative; padding-top: 5px;}
+  .webbs-detail-reply-btnGroup{position: relative; padding-top: 10px;}
   .webbs-detail-reply-btnGroup button+button{position: absolute; right: 0;}
   .webbs-detail-reply-list>div{margin: 10px 0; border: 1px solid #CDC9C9; padding: 30px; text-align: center;}
 

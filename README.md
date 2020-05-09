@@ -29,6 +29,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 全局背景色  #EEE9E9
 边框/分割线  #CDC9C9
 字体颜色  #666 / #8B8989
+文字滑过 #EEDD82
+按钮滑过 #8B8989
 ```
 
 

@@ -7,6 +7,7 @@ import index from '../components/page/index'
 import write from '../components/page/write'
 import detail from '../components/page/detail'
 import listzero from '../components/page/listzero'
+import search from '../components/page/search'
 
 import login from '../components/common/login'
 import error from '../components/common/error'
@@ -40,6 +41,11 @@ export default new Router({
           path: '/listzero',
           name: 'listzero',
           component: listzero
+        },
+        {
+          path: '/search/:key',
+          name: 'search',
+          component: search
         }
       ]
     },

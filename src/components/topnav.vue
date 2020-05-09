@@ -11,7 +11,8 @@
           <li cate="news">新闻</li>
         </ul>
         <div class="webbs-nav-other">
-          <i class="icon iconfont icon-sousuo2 webbs-nav-search"></i>
+          <input type="text" ref="search" v-on:keyup.enter="enter" v-model.trim="search" placeholder="请输入...">
+          <i class="icon iconfont icon-sousuo webbs-nav-search" @click="show"></i>
           <router-link to="/write" class="webbs-nav-write"><i class="icon iconfont icon-write"></i></router-link>
           <router-link to="/login" class="webbs-nav-login">登录/注册</router-link>
         </div>
@@ -22,7 +23,21 @@
 
 <script>
 export default {
-  name: 'topnav'
+  name: 'topnav',
+  data(){
+    return {
+      search: ''
+    }
+  },
+  methods:{
+    show(){
+      this.$refs.search.className = this.$refs.search.className == "show" ? "": "show"
+    },
+    enter(){
+      this.$router.push({name: 'search', params: { key: this.search }});
+      this.search = "";
+    }
+  }
 }
 </script>
 
@@ -33,8 +48,10 @@ export default {
   .webbs-nav-list li{display: inline-block; margin: 0 10px; vertical-align: middle;}
 
   .webbs-nav-other>*{display: inline-block; vertical-align: middle;}
+  .webbs-nav-other input{margin-right: 10px; width: 0; height: 26px; line-height: 26px; transition: 500ms all; border: none; outline: none; border-bottom: 1px solid #CDC9C9; background-color: transparent;}
+  .webbs-nav-other input.show{width: 170px;}
   .webbs-nav-search{font-size: 26px; cursor: pointer; color: #8B8989;}
   .webbs-nav-write{margin: 0 10px;}
-  .webbs-nav-write i{font-size: 26px; color: #8B8989;}
-  .webbs-nav-login{}
+  .webbs-nav-write i{font-size: 22px; color: #8B8989;}
+  .webbs-nav-login{font-size: 18px;}
 </style>
