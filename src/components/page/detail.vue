@@ -5,19 +5,18 @@
         <div class="webbs-detail-article">
           <h3>{{title}}</h3>
           <div class="webbs-detail-article-content">{{content}}</div>
-          <button class="webbs-button webbs-detail-article-like" v-on:click="like">点赞 
-            <i ref="likeIcon" class="icon iconfont icon-like"></i><span ref="likeText">+1</span>
+          <button class="webbs-button webbs-detail-article-like" v-on:click="like($event)">
+            <i class="icon iconfont icon-like"></i>
           </button>
-          <button class="webbs-button webbs-detail-article-like" v-on:click="unlike">踩 
-            <i ref="unlikeIcon" class="icon iconfont icon-cai2"></i>
+          <button class="webbs-button webbs-detail-article-like" v-on:click="unlike($event)">
+            <i class="icon iconfont icon-cai2"></i>
           </button>
-          <span class="webbs-detail-article-replys">评论数 <span>{{replys}}</span></span>
           <button class="webbs-button webbs-detail-article-comment" @click="write"> <i class="icon iconfont icon-write"></i> 写评论</button>
         </div>
-        <div class="webbs-detail-reply">
-          <div v-if="show" class="webbs-detail-reply-write">
+        <div class="webbs-detail-comment">
+          <div v-show="show" class="webbs-detail-comment-write">
             <el-input type="textarea" ref="textarea" :rows="4" placeholder="请输入..." v-model.trim="textarea"></el-input>
-            <div class="webbs-detail-reply-btnGroup">
+            <div class="webbs-detail-comment-btnGroup">
               <button class="webbs-button" @click="publish">发表</button>
               <button class="webbs-button" @click="cancel">取消</button>
             </div>
@@ -25,9 +24,25 @@
           <div v-if="replys == 0">
             暂无评论，快来抢沙发~
           </div>
-          <div v-else class="webbs-detail-reply-list">
+          <div v-else class="webbs-detail-reply">
             <button class="webbs-button" @click="sort='hot'">按热度</button> / <button class="webbs-button" @click="sort='time'">按发布时间</button>
-            <div class="webbs-detail-reply-item" v-for="item in replyList" :key="item.id">{{item.content}}</div>
+            <span class="webbs-detail-replyNum">评论数 <span>{{replys}}</span></span>
+            <div class="webbs-detail-reply-item" v-for="item in replyList" :key="item.id">
+              <div class="webbs-detail-reply-conent">
+                <img class="webbs-detail-reply-avatar" :src="`${publicPath}reply_avatar.jpg`" alt="头像">
+                <p><span>{{item.author}}：</span> {{item.content}}</p>
+              </div>
+              <div class="webbs-detail-reply-other">
+                <button class="webbs-button webbs-detail-article-like" @click="like($event)">
+                  <i class="icon iconfont icon-like"></i>
+                </button>
+                <button class="webbs-button webbs-detail-article-like" @click="unlike($event)"> 
+                  <i class="icon iconfont icon-cai2"></i>
+                </button>
+                <button class="webbs-button webbs-detail-article-comment"> <i class="icon iconfont icon-pinglun"></i> 回复</button>
+              </div>
+              <div class="webbs-detail-reply-more"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,10 +80,11 @@ export default {
       title: '子曰',
       content: '孔子说，老子都是骗人的！',
       replyList: [
-        {id: 1, content: '评论一', like: 1, unlike: 0, reply: 1},
-        {id: 2, content: '评论二', like: 1, unlike: 0, reply: 1},
-        {id: 3, content: '评论三', like: 1, unlike: 0, reply: 1},
-        {id: 4, content: '评论四', like: 1, unlike: 0, reply: 1}
+        {id: 1, author: '老子', content: '孔子在放屁！', like: 1, unlike: 0, reply: 1},
+        {id: 2, author: '墨子', content: '兼爱，非攻', like: 1, unlike: 0, reply: 1},
+        {id: 3, author: '孟子', content: '不说了，我先搬家', like: 1, unlike: 0, reply: 1},
+        {id: 4, author: '庄子', content: '我怎么醒了', like: 1, unlike: 0, reply: 1},
+        {id: 5, author: '钻子', content: '这个孔钻的有些大这个孔钻的有些大这个孔钻的有些大这个孔钻的有些大这个孔钻的有些大这个孔钻的有些大这个孔钻的有些大', like: 1, unlike: 0, reply: 1}
       ],
       show: false,
       textarea: '',
@@ -96,25 +112,16 @@ export default {
     }
   },
   methods:{
-    like(){
-      if(this.$refs.likeText.className != "fail"){
-        this.$refs.likeIcon.style.color = "#F00";
-        this.$refs.likeText.className = "active";
-        setTimeout( ()=>{this.$refs.likeText.className = "fail"}, 500),
-        console.log(this.$route.params.id);
-        this.$message({
-          message: '点赞成功！',
-          type: 'success'
-        });
-      }else{
-        this.$message({
-          message: '已经点赞过啦！',
-          type: 'warning'
-        });
-      }
+    like(e){
+      e.target.style.color = "#F00";
+      console.log(this.$route.params.id);
+      this.$message({
+        message: '点赞成功！',
+        type: 'success'
+      });
     },
-    unlike(){
-      this.$refs.unlikeIcon.style.color = "#00BFFF";
+    unlike(e){
+      e.target.style.color = "#00BFFF";
     },
     write(){
       this.textarea = '';
@@ -143,17 +150,23 @@ export default {
   .webbs-detail-main{margin-top: 15px; background-color: #FFFAFA;}
   .webbs-detail-article{padding: 15px; border-bottom: 1px solid #CDC9C9;}
   .webbs-detail-article-content{margin-bottom: 10px; padding: 5px; font-size: 14px;}
-  .webbs-detail-article-like{position: relative; margin-right: 10px; border: none; background: transparent; outline: none;}
-  .webbs-detail-article-like span{position: absolute; top: -10px; right: 0; font-size: 12px; color: #FF6347; opacity: 0; transition: 300ms all;}
-  .webbs-detail-article-like span.active{opacity: 1;}
-  .webbs-detail-article-like span.fail{opacity: 0;}
-  .webbs-detail-article-replys{font-size: 14px;}
+  .webbs-detail-article-like{padding: 0 2px; margin: 0 2px;}
+
   .webbs-detail-article-comment{float: right;}
-  .webbs-detail-reply{padding: 15px;}
-  .webbs-detail-reply-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
-  .webbs-detail-reply-btnGroup{position: relative; padding-top: 10px;}
-  .webbs-detail-reply-btnGroup button+button{position: absolute; right: 0;}
-  .webbs-detail-reply-list>div{margin: 10px 0; border: 1px solid #CDC9C9; padding: 30px; text-align: center;}
+  .webbs-detail-comment{padding: 15px;}
+  .webbs-detail-comment-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
+  .webbs-detail-comment-btnGroup{position: relative; padding-top: 10px;}
+  .webbs-detail-comment-btnGroup button+button{position: absolute; right: 0;}
+
+  .webbs-detail-replyNum{float: right; padding: 0 5px; font-size: 12px;}
+  .webbs-detail-reply-item{margin: 10px 0; border: 1px solid #EEE9E9; background-color: #FFF; padding: 10px 15px;}
+  .webbs-detail-reply-conent{display: flex; padding-bottom: 10px; flex-wrap: nowrap;}
+  .webbs-detail-reply-avatar{width: 25px; height: 25px; border-radius: 50%;}
+  .webbs-detail-reply-conent p{padding-left: 10px; line-height: 24px; font-size: 12px; color: #8B8989;}
+  .webbs-detail-reply-conent span{font-size: 14px; color: #666;}
+
+
+
 
   .webbs-detail-author{padding: 15px; text-align: center;}
   .webbs-detail-avatar{display: inline-block; width: 80px; height: 80px; overflow: hidden; border: 1px solid #CDC9C9; border-radius: 50%;}
