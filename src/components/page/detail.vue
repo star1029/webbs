@@ -43,7 +43,7 @@
               </div>
               <div v-if="item.reply">
                 <div class="webbs-detail-reply-more">{{item.reply}}</div>
-                <button class="webbs-button">点击查看</button>
+                <button class="webbs-button webbs-detail-reply-moreBtn" @click="moreActive($event)">点击查看</button>
               </div>
               <div v-else class="webbs-detail-reply-empty">暂无回复</div>
             </div>
@@ -145,6 +145,10 @@ export default {
     },
     cancel(){
       this.show = false;
+    },
+    moreActive(e){
+      let pres = e.target.previousElementSibling;
+      pres.className += ' active';
     }
   }
 }
@@ -169,7 +173,9 @@ export default {
   .webbs-detail-reply-conent p{padding-left: 10px; line-height: 24px; font-size: 12px; color: var(--font-color1);}
   .webbs-detail-reply-conent span{font-size: 14px; color: var(--font-color);}
   .webbs-detail-reply-other{padding:10px 15px;}
-  .webbs-detail-reply-more{display: none; height: 0;}
+  .webbs-detail-reply-more{display: none; height: 0; border-top: 1px solid var(--background-color);}
+  .webbs-detail-reply-more.active{display: block; height: 100px;}
+  .webbs-detail-reply-moreBtn{width: 100%; border-top: 1px solid var(--background-color);}
   .webbs-detail-reply-empty{text-align: center; border-top: 1px solid var(--background-color); color: var(--font-color1); line-height: 18px; font-size: 12px; letter-spacing: 1px;}
 
   .webbs-detail-author{padding: 15px; text-align: center;}
