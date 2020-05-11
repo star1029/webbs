@@ -57,6 +57,6 @@ export default {
 </script>
 
 <style scoped>
-  .webbs-index-main{margin: 15px 0; height: 500px; background-color: #FFFAFA;}
+  .webbs-index-main{margin: 15px 0; height: 500px; background-color: var(--background-color-main);}
   .webbs-home-list-more{float: right; font-size: 12px;}
 </style>

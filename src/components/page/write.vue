@@ -48,12 +48,12 @@ export default {
 </script>
 
 <style>
-  .write{margin-top: 15px; background-color: #FFFAFA;}
-  .webbs-write-title{padding: 5px; border-bottom: 1px solid #CDC9C9;}
+  .write{margin-top: 15px; background-color: var(--background-color-main);}
+  .webbs-write-title{padding: 5px; border-bottom: 1px solid var(--border-color);}
   .webbs-write-title input{box-sizing: border-box; width: 100%; padding: 10px 20px; height: 50px; line-height: 30px; font-size: 20px; background-color: transparent; border: none; outline: none;}
   .webbs-write-main{height: 600px;}
   .webbs-write-main .tox-tinymce{border-width: 0 0 1px 0;}
   .webbs-write-submit{position: relative; padding: 15px 30px; text-align: right;}
-  .webbs-write-submit button{padding: 10px 20px; font-size: 16px; line-height: 18px; letter-spacing: 2px; border: 1px solid #8B8989; border-radius: 5px;}
-  .webbs-write-submit button:hover{background-color: #8B8989; color: #FFF;}
+  .webbs-write-submit button{padding: 10px 20px; font-size: 16px; line-height: 18px; letter-spacing: 2px; border: 1px solid var(--font-color1); border-radius: 5px;}
+  .webbs-write-submit button:hover{background-color: var(--font-color1); color: #FFF;}
 </style>

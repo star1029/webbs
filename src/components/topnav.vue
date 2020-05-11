@@ -42,16 +42,16 @@ export default {
 </script>
 
 <style>
-  .topnav{padding: 5px 0; font-size: 20px; box-shadow: 0 2px 2px rgba(205,201,201,0.75); background-color: #FFFAFA;}
+  .topnav{padding: 5px 0; font-size: 20px; box-shadow: 0 2px 2px rgba(205,201,201,0.75); background-color: var(--background-color-main);}
   .webbs-nav-top{display: flex;}
   .webbs-nav-list{flex-grow: 1;}
   .webbs-nav-list li{display: inline-block; margin: 0 10px; vertical-align: middle;}
 
   .webbs-nav-other>*{display: inline-block; vertical-align: middle;}
-  .webbs-nav-other input{margin-right: 10px; width: 0; height: 26px; line-height: 26px; transition: 500ms all; border: none; outline: none; border-bottom: 1px solid #CDC9C9; background-color: transparent;}
+  .webbs-nav-other input{margin-right: 10px; width: 0; height: 26px; line-height: 26px; transition: 500ms all; border: none; outline: none; border-bottom: 1px solid var(--border-color); background-color: transparent;}
   .webbs-nav-other input.show{width: 170px;}
-  .webbs-nav-search{font-size: 26px; cursor: pointer; color: #8B8989;}
+  .webbs-nav-search{font-size: 26px; cursor: pointer; color: var(--font-color1);}
   .webbs-nav-write{margin: 0 10px;}
-  .webbs-nav-write i{font-size: 22px; color: #8B8989;}
+  .webbs-nav-write i{font-size: 22px; color: var(--font-color1);}
   .webbs-nav-login{font-size: 18px;}
 </style>

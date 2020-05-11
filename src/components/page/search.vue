@@ -38,5 +38,5 @@ export default {
 <style scoped>
   .webbs-search-empty{padding: 30px; font-size: 20px;}
   .webbs-search-list{margin-top: 15px;}
-  .webbs-search-list dt{margin-bottom: 10px; height: 50px; line-height: 50px; border-bottom: 1px solid #CDC9C9;}
+  .webbs-search-list dt{margin-bottom: 10px; height: 50px; line-height: 50px; border-bottom: 1px solid var(--border-color);}
 </style>

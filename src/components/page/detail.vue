@@ -9,7 +9,7 @@
             <i class="icon iconfont icon-like"></i>
           </button>
           <button class="webbs-button webbs-detail-article-like" v-on:click="unlike($event)">
-            <i class="icon iconfont icon-cai2"></i>
+            <i class="icon iconfont icon-cai"></i>
           </button>
           <button class="webbs-button webbs-detail-article-comment" @click="write"> <i class="icon iconfont icon-write"></i> 写评论</button>
         </div>
@@ -37,11 +37,15 @@
                   <i class="icon iconfont icon-like"></i>
                 </button>
                 <button class="webbs-button webbs-detail-article-like" @click="unlike($event)"> 
-                  <i class="icon iconfont icon-cai2"></i>
+                  <i class="icon iconfont icon-cai"></i>
                 </button>
                 <button class="webbs-button webbs-detail-article-comment"> <i class="icon iconfont icon-pinglun"></i> 回复</button>
               </div>
-              <div class="webbs-detail-reply-more"></div>
+              <div v-if="item.reply">
+                <div class="webbs-detail-reply-more">{{item.reply}}</div>
+                <button class="webbs-button">点击查看</button>
+              </div>
+              <div v-else class="webbs-detail-reply-empty">暂无回复</div>
             </div>
           </div>
         </div>
@@ -80,7 +84,7 @@ export default {
       title: '子曰',
       content: '孔子说，老子都是骗人的！',
       replyList: [
-        {id: 1, author: '老子', content: '孔子在放屁！', like: 1, unlike: 0, reply: 1},
+        {id: 1, author: '老子', content: '孔子在放屁！', like: 1, unlike: 0, reply: 0},
         {id: 2, author: '墨子', content: '兼爱，非攻', like: 1, unlike: 0, reply: 1},
         {id: 3, author: '孟子', content: '不说了，我先搬家', like: 1, unlike: 0, reply: 1},
         {id: 4, author: '庄子', content: '我怎么醒了', like: 1, unlike: 0, reply: 1},
@@ -147,32 +151,32 @@ export default {
 </script>
 
 <style scoped>
-  .webbs-detail-main{margin-top: 15px; background-color: #FFFAFA;}
-  .webbs-detail-article{padding: 15px; border-bottom: 1px solid #CDC9C9;}
+  .webbs-detail-main{margin-top: 15px; background-color: var(--background-color-main);}
+  .webbs-detail-article{padding: 15px; border-bottom: 1px solid var(--border-color);}
   .webbs-detail-article-content{margin-bottom: 10px; padding: 5px; font-size: 14px;}
   .webbs-detail-article-like{padding: 0 2px; margin: 0 2px;}
 
   .webbs-detail-article-comment{float: right;}
   .webbs-detail-comment{padding: 15px;}
-  .webbs-detail-comment-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #CDC9C9;}
+  .webbs-detail-comment-write{margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);}
   .webbs-detail-comment-btnGroup{position: relative; padding-top: 10px;}
   .webbs-detail-comment-btnGroup button+button{position: absolute; right: 0;}
 
   .webbs-detail-replyNum{float: right; padding: 0 5px; font-size: 12px;}
-  .webbs-detail-reply-item{margin: 10px 0; border: 1px solid #EEE9E9; background-color: #FFF; padding: 10px 15px;}
-  .webbs-detail-reply-conent{display: flex; padding-bottom: 10px; flex-wrap: nowrap;}
+  .webbs-detail-reply-item{margin: 10px 0; border: 1px solid var(--background-color); background-color: #FFF; padding-top: 10px;}
+  .webbs-detail-reply-conent{display: flex; padding:0 15px; flex-wrap: nowrap;}
   .webbs-detail-reply-avatar{width: 25px; height: 25px; border-radius: 50%;}
-  .webbs-detail-reply-conent p{padding-left: 10px; line-height: 24px; font-size: 12px; color: #8B8989;}
-  .webbs-detail-reply-conent span{font-size: 14px; color: #666;}
-
-
-
+  .webbs-detail-reply-conent p{padding-left: 10px; line-height: 24px; font-size: 12px; color: var(--font-color1);}
+  .webbs-detail-reply-conent span{font-size: 14px; color: var(--font-color);}
+  .webbs-detail-reply-other{padding:10px 15px;}
+  .webbs-detail-reply-more{display: none; height: 0;}
+  .webbs-detail-reply-empty{text-align: center; border-top: 1px solid var(--background-color); color: var(--font-color1); line-height: 18px; font-size: 12px; letter-spacing: 1px;}
 
   .webbs-detail-author{padding: 15px; text-align: center;}
-  .webbs-detail-avatar{display: inline-block; width: 80px; height: 80px; overflow: hidden; border: 1px solid #CDC9C9; border-radius: 50%;}
+  .webbs-detail-avatar{display: inline-block; width: 80px; height: 80px; overflow: hidden; border: 1px solid var(--border-color); border-radius: 50%;}
   .webbs-detail-avatar img{width: 100%; height: 100%;}
   .webbs-detail-nickname{height: 34px; line-height: 34px;}
   .webbs-detail-fens li{display: inline-block; width: 50%;}
-  .webbs-detail-hot{margin-top: 15px; padding-top: 15px; border-top: 1px solid #CDC9C9; font-size: 14px; line-height: 24px; text-align: left;}
+  .webbs-detail-hot{margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); font-size: 14px; line-height: 24px; text-align: left;}
   .webbs-detail-hot dd{overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 </style>
